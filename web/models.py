@@ -9,3 +9,13 @@ class Expense(models.Model):
 
     def __str__(self):
         return "{}-{}".format(self.text,self.date)
+
+
+class Income(models.Model):
+    text   = models.CharField(max_length = 255)
+    date   = models.DateTimeField()
+    amount = models.DecimalField(max_digits=10 , decimal_places=2)
+    User   = models.ForeignKey(User,on_delete = models.CASCADE)
+
+    def __str__(self):
+        return "{}-{}".format(self.text,self.date)
